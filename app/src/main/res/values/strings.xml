@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Android application</string>
+    <string name="s_brand">Brand</string>
+    <string name="s_model">Model</string>
+    <string name="s_transmission">Transmission</string>
+    <string name="s_ModYear">Model Year</string>
+    <string name="s_mileage">Mileage</string>
+    <string name="s_Fuse">Fuel Type</string>
+    <string name="s_contact">Contact Number</string>
+    <string name="s_policy">Agree to the Terms and Privacy Policy</string>
+    <string name="s_add">Add</string>
+    <string name="s_car1make">Toyota Corolla 21,000,000/=</string>
+    <string name="s_car2make">Honda Insight 35,000,000/=</string>
+    <string name="s_car3make">Nissan Sunny 18,000,000/=</string>
+    <string name="s_contact_number">Contact Number : 0715628422</string>
+
+
 </resources>
