@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/regWallpaper"
     tools:context=".register">
 
     <TextView
@@ -164,8 +165,8 @@
         android:ems="10"
         android:fontFamily="@font/aclonica"
         android:hint="@string/password"
-        android:padding="10dp"
         android:inputType="textPassword"
+        android:padding="10dp"
         android:textColor="#EDE2E2"
         android:textColorHint="#EFE2E2"
         android:textSize="14sp"
