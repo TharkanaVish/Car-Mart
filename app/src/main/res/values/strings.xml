@@ -60,5 +60,29 @@
     <string name="cancel2">Cancel</string>
     <string name="phone_number">Phone Number</string>
     <string name="confirm_password1">Confirm Password</string>
+    <string name="Txt1">Car Mart</string>
+    <string name="button1">Login</string>
+    <string name="button2">Register</string>
+    <string name="button3">Search A Car</string>
+    <string name="button4">Notices</string>
+    <string name="button5">Buy A Car</string>
+    <string name="button6">Sell A Car</string>
+    <string name="button7">Order A BrandNew Car</string>
+    <string name="button8">Fill the forum to Order</string>
+    <string name="button9">Name of the Car :</string>
+    <string name="button10">Car Model :</string>
+    <string name="button11">Model Year :</string>
+    <string name="button12">Car Brand :</string>
+    <string name="button13"> </string>
+    <string name="button14">Car Colour :</string>
+    <string name="button15">Cancel</string>
+    <string name="button16">Proceed to Checkout</string>
+    <string name="button17">Types of Cars</string>
+    <string name="button18">Seedan</string>
+    <string name="button19">Coupe</string>
+    <string name="button20">SUV</string>
+    <string name="button21">Sports</string>
+    <string name="button22">Edit</string>
+    <string name="button23">Proceed to Payment</string>
 
 </resources>
