@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android application</string>
+
     <string name="s_brand">Brand</string>
     <string name="s_model">Model</string>
     <string name="s_transmission">Transmission</string>
@@ -107,6 +107,7 @@
     <string name="n_n_notice_id_edit">Notice ID</string>
     <string name="edit_notice">EDIT NOTICE</string>
     <string name="notice_id">Notice ID</string>
+    <string name="search">n_search</string>
 
 
 </resources>
