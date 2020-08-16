@@ -20,7 +20,7 @@
         <activity android:name=".register" />
         <activity android:name=".paymentview" />
         <activity android:name=".payment" />
-        <activity android:name=".activity_add_notice" />
+        <activity android:name=".AddNoticeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
