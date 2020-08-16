@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Registerview"></activity>
+        <activity android:name=".activity_add_notice"></activity>
+        <activity android:name=".Registerview" />
         <activity android:name=".register" />
         <activity android:name=".paymentview" />
         <activity android:name=".payment" />
-        <activity android:name=".AddNoticeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
