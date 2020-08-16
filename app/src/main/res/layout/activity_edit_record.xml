@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+
+    android:background="@drawable/background2">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/display_text"
+        android:text="@string/n_edit_information"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/blackColor"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/background"
+
+        />
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:id="@+id/image"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/display_text"
+        android:padding="2dp"
+        android:src="@drawable/ic_action_name"
+        android:background="@drawable/background"
+        />
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/background"
+        android:hint="@string/notice_id"
+        android:inputType="textPersonName|textCapWords"
+        android:padding="10dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/heading"
+        android:layout_below="@id/id"
+        android:hint="@string/n_edit_heading"
+        android:inputType="textPersonName|textCapWords"
+        android:padding="10dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/background"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:layout_below="@id/heading"
+        android:hint="@string/n_edit_name"
+        android:inputType="textPersonName|textCapWords"
+        android:padding="10dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/background"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone"
+        android:layout_below="@id/name"
+        android:hint="@string/n_change_mobile"
+        android:inputType="textPersonName|textCapWords"
+        android:padding="10dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/background"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:layout_below="@id/phone"
+        android:hint="@string/n_change_e_mail"
+        android:inputType="textPersonName|textCapWords"
+        android:padding="10dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/background"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_notice"
+        android:layout_below="@id/email"
+        android:hint="@string/n_change_notice_information"
+        android:inputType="textPersonName|textCapWords"
+        android:padding="35dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/background"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addButton"
+        android:layout_below="@+id/add_notice"
+        android:layout_centerHorizontal="true"
+        android:text="@string/edit_notice"
+        android:textStyle="bold"
+        android:textColor="@color/blackColor"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background"
+        />
+
+</RelativeLayout>
