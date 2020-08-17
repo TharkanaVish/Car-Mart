@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShowNotices">
+    tools:context=".ShowNotices"
+    android:background="@drawable/background2">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -25,7 +26,4 @@
         android:src="@drawable/ic_baseline_add_24"
         app:backgroundTint="@color/colorPrimary"
         tools:ignore="MissingClass" />
-
-
-
 </RelativeLayout>
