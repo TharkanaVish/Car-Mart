@@ -3,13 +3,15 @@
     package="com.example.androidapplication">
 
     <application
-        android:fullBackupContent="true"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
-
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".EditRecordActivity"></activity>
+        <activity android:name=".ShowRecords" />
+        <activity android:name=".AddRecordActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".Registerview" />
         <activity android:name=".register" />
