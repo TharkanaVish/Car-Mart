@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="3dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/background3">
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/profileIv_c"
+            android:layout_width="130dp"
+            android:layout_height="99dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_profile"
+            tools:srcCompat="@drawable/ic_action_profile" />
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/profileIv_c"
+            android:layout_toEndOf="@+id/profileIv_c"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:id="@+id/brand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/s_brand"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/model"
+                android:text="@string/s_model"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/transmission"
+                android:text="@string/s_transmission"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Modyear"
+                android:text="@string/s_ModYear"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mileage"
+                android:text="@string/s_mileage"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fuel"
+                android:text="@string/s_fuel"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contact"
+                android:text="@string/s_contact"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editBtn"
+                    android:src="@drawable/ic_action_edit"
+                    android:background="@null"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"/>
+
+                <ImageButton
+                    android:id="@+id/deleteBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_action_delete" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

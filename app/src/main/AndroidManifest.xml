@@ -9,21 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditRecordActivity"></activity>
-        <activity android:name=".ShowRecords" />
+        <activity android:name=".UpdateACar"></activity>
+        <activity android:name=".AddNewCar" />
+        <activity android:name=".ListCarViewCustomer" />
+        <activity android:name=".ListCarView" />
+        <activity android:name=".EditRecordActivity" />
+        <activity android:name=".ShowRecords">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            />
+        </activity>
         <activity android:name=".AddRecordActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".Registerview" />
         <activity android:name=".register" />
         <activity android:name=".paymentview" />
         <activity android:name=".payment" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
