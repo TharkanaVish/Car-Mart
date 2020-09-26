@@ -1,9 +1,5 @@
 package com.example.androidapplication;
 
-
-
-
-
 public class Model {
 
     String id, image, heading, name, mobile, email, notice_info, add_notice, update_notice;

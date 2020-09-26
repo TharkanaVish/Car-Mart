@@ -109,6 +109,7 @@
     <string name="n_enter_mobile">Enter Mobile</string>
     <string name="n_enter_e_mail">Enter E-mail</string>
     <string name="n_n_notice_id_edit">Notice ID</string>
+    <string name="notices">Notices</string>
 
 
 </resources>
