@@ -67,7 +67,7 @@ public class EditRecordActivity extends AppCompatActivity {
         pnotice_infoEt = findViewById(R.id.notice_info);
 
         ///there was add_notice and i chnged to addFabButton v4 -13.24sec
-        saveInfoBt = findViewById(R.id.addFabButton);
+        saveInfoBt = findViewById(R.id.add_notice);
 
 
         Intent intent = getIntent();
