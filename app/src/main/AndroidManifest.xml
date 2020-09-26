@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateACar"></activity>
+        <activity android:name=".ListCarViewCustomer"></activity>
+        <activity android:name=".UpdateACar" />
         <activity android:name=".AddNewCar" />
-        <activity android:name=".ListCarViewCustomer" />
         <activity android:name=".ListCarView" />
         <activity android:name=".EditRecordActivity" />
         <activity android:name=".ShowRecords">
