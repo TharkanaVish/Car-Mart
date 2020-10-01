@@ -8,24 +8,19 @@ import android.view.View;
 import android.widget.Button;
 
 public class Homepage extends AppCompatActivity {
-Button notices;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
+        Button brandNewBtn = findViewById(R.id.btnBrandNew);
 
-       notices = findViewById(R.id.button11);
-        notices.setOnClickListener(new View.OnClickListener() {
+        brandNewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),ShowRecords.class);
+                Intent i = new Intent(Homepage.this,Type.class);
                 startActivity(i);
             }
         });
-
-
-
-
     }
 }
