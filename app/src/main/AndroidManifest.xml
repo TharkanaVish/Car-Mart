@@ -9,10 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListCarViewCustomer"></activity>
-        <activity android:name=".Checkout"></activity>
-        <activity android:name=".Type"></activity>
-        <activity android:name=".BrandNewForm"></activity>
+        <activity android:name=".Checkout" />
+        <activity android:name=".Type" />
+        <activity android:name=".BrandNewForm" />
         <activity android:name=".Homepage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ListCarViewCustomer" />
         <activity android:name=".UpdateACar" />
         <activity android:name=".AddNewCar" />
         <activity android:name=".ListCarView" />
