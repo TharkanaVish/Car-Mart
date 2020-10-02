@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Registerview"></activity>
         <activity android:name=".Checkout" />
         <activity android:name=".Type" />
         <activity android:name=".BrandNewForm" />
@@ -24,11 +25,9 @@
         <activity android:name=".AddNewCar" />
         <activity android:name=".ListCarView" />
         <activity android:name=".EditRecordActivity" />
-        <activity android:name=".ShowRecords">
-        </activity>
+        <activity android:name=".ShowRecords"></activity>
         <activity android:name=".AddRecordActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".Registerview" />
         <activity android:name=".register" />
         <activity android:name=".paymentview" />
         <activity android:name=".payment" />
