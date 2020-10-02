@@ -52,14 +52,14 @@ public class ListCarViewCustomer extends AppCompatActivity {
         });
 
     }
-//search
 
-    //search
+
+
 
     private void showRecord() {
 
         AdapterC adapter = new AdapterC(ListCarViewCustomer.this, databaseHelper.getAllCarData(ConstantsC.C_ADD_CAR + " DESC"),false);
-        //last added record will be show on top-record sorting
+
         mRecyclerView.setAdapter(adapter);
     }
 
@@ -71,7 +71,7 @@ public class ListCarViewCustomer extends AppCompatActivity {
 
     @Override
 
-    //this funvtion kills all activites.. so
+
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == event.KEYCODE_BACK){
             moveTaskToBack(true);

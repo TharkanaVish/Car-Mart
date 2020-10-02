@@ -16,20 +16,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class AdapterC extends RecyclerView.Adapter<AdapterC.Holder> {
 
     private Context context;
     private ArrayList<ModelC> arrayList;
-    //dataBase object
     private DatabaseHelper databaseHelper;
     private boolean isButtonsNeeded = false;
 
     public AdapterC(Context context, ArrayList<ModelC> arrayList, boolean isButtonsNeeded) {
         this.context = context;
         this.arrayList = arrayList;
-        //initialize here
+
         databaseHelper = new DatabaseHelper(context);
         this.isButtonsNeeded = isButtonsNeeded;
     }
@@ -46,7 +46,7 @@ public class AdapterC extends RecyclerView.Adapter<AdapterC.Holder> {
     public void onBindViewHolder(@NonNull Holder holder, final int position) {
 
         ModelC model = arrayList.get(position);
-        //get  for view
+
         final String id = model.getId();
         final String image = model.getImage();
         final String brand = model.getBrand();
@@ -97,7 +97,7 @@ public class AdapterC extends RecyclerView.Adapter<AdapterC.Holder> {
                 );
             }
         });
-        //when long press on item ,show an alert for delete an item
+
 
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override

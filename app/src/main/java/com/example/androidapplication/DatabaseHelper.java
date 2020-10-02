@@ -103,7 +103,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Shelani Functions
-
+    //Insert a Car function
     public long insertACar(String brand, String Model, String transmission, String ModYear,String image, String mileage, String fuel,String contact,String add_car,String update_car){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -123,7 +123,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    //update info function
+    //update a Car Function
     public void updateACar(String id,String brand, String Model, String transmission, String ModYear,String image, String mileage, String fuel,String contact,String add_car,String update_car){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -142,7 +142,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    //delete info function
+    //Delete a Car Function
     public void deleteACar(String id){
         SQLiteDatabase db = getWritableDatabase();
         db.delete(ConstantsC.TABLE_NAME,ConstantsC.C_ID + " = ?", new String[]{id});
@@ -150,19 +150,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
+    //get all car details function
     public ArrayList<ModelC> getAllCarData(String orderBy){
-        ArrayList<ModelC> arrayList = new ArrayList<>();
+        ArrayList<ModelC> CararrayList = new ArrayList<>();
 
         String selectQuery = "SELECT * FROM " + ConstantsC.TABLE_NAME + " ORDER BY " + orderBy;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        //when we select all info from database
+
         if(cursor.moveToNext()){
             do {
-                //do is used because first it gets the data from columns then move to next condition
+
                 ModelC model = new ModelC(
                         "" + cursor.getInt(cursor.getColumnIndex(ConstantsC.C_ID)),
                         "" + cursor.getString(cursor.getColumnIndex(ConstantsC.C_IMAGE)),
@@ -178,12 +178,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
                 );
-                arrayList.add(model);
+                CararrayList.add(model);
             }
             while (cursor.moveToNext());
         }
         db.close();
-        return arrayList;
+        return CararrayList;
     }
 }
 

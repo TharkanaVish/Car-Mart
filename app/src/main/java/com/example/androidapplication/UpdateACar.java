@@ -69,7 +69,7 @@ public class UpdateACar extends AppCompatActivity {
         cfuel = findViewById(R.id.fuel);
         ccontact = findViewById(R.id.contact);
 
-        ///there was add_notice and i chnged to addFabButton v4 -13.24sec
+
         addCarbtn = findViewById(R.id.addFabButton);
 
 
@@ -129,7 +129,7 @@ public class UpdateACar extends AppCompatActivity {
         cameraPermissions = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions=new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-        //initialize database object in  main function
+
         dbHelper = new DatabaseHelper(this);
 
         cImageView.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +142,7 @@ public class UpdateACar extends AppCompatActivity {
         addCarbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //when click on save button insert the data to db
+
                 getData();
 
                 startActivity(new Intent(UpdateACar.this, ListCarView.class));
@@ -210,9 +210,9 @@ public class UpdateACar extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(which == 0){
-                    //if 0 then open the camera and also check the permission of camera
+
                     if (!checkCameraPermission()){
-                        //If permission not granted  then request for camera permission
+
                         requestCameraPermission();
                     }
                     else{
@@ -235,14 +235,14 @@ public class UpdateACar extends AppCompatActivity {
     }
 
     private void pickFromStorage() {
-        //so this function get image from gallery
+
         Intent galleryIntent = new Intent(Intent.ACTION_PICK);
         galleryIntent.setType("image/*");
         startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_CODE);
     }
 
     private void pickFromCamera() {
-        //now get image from camera
+
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE,"Image title");
         values.put(MediaStore.Images.Media.DESCRIPTION,"Image description");
@@ -347,7 +347,7 @@ public class UpdateACar extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        /* this moves add record activity to main activity */
+
         onBackPressed();
         return super.onSupportNavigateUp();
 
