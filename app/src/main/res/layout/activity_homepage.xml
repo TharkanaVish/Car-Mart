@@ -99,12 +99,13 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/btnnotices"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:fontFamily="@font/aclonica"
-            android:text="@string/button4"
+            android:text="@string/notices"
             android:textStyle="bold" />
+
 
     </LinearLayout>
 
