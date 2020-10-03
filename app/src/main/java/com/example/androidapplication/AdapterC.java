@@ -16,7 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.ByteArrayOutputStream;
+
 import java.util.ArrayList;
 
 public class AdapterC extends RecyclerView.Adapter<AdapterC.Holder> {
