@@ -11,7 +11,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Registerview"></activity>
         <activity android:name=".Checkout" />
-        <activity android:name=".Type" />
         <activity android:name=".BrandNewForm" />
         <activity android:name=".Homepage">
             <intent-filter>

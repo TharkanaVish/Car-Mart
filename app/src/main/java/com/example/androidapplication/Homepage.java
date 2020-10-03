@@ -29,7 +29,7 @@ public class Homepage extends AppCompatActivity {
         brandNewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Homepage.this,Type.class);
+                Intent i = new Intent(Homepage.this,BrandNewForm.class);
                 startActivity(i);
             }
         });

@@ -37,7 +37,7 @@ public class BrandNewForm extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent i = new Intent(BrandNewForm.this,Type.class);
+                        Intent i = new Intent(BrandNewForm.this,Homepage.class);
                         startActivity(i);
                     }
                 }
