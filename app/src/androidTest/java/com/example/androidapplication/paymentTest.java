@@ -36,7 +36,6 @@ public class paymentTest {
         onView(withId(R.id.proceed)).perform(click());
         Activity nextActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,500);
         assertNotNull(nextActivity);
-
         nextActivity.finish();
     }
 
