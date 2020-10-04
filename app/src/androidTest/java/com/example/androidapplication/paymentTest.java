@@ -34,7 +34,6 @@ public class paymentTest {
     public void testLaunch(){
         assertNotNull(pActivity.findViewById(R.id.proceed));
         onView(withId(R.id.proceed)).perform(click());
-
         Activity nextActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,500);
         assertNotNull(nextActivity);
 
