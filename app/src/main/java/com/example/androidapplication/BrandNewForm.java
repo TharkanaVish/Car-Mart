@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class BrandNewForm extends AppCompatActivity {
     DataBaseHelper2 myDb;
     EditText editcarname,editcarmodel,editmodelyear,editcarbrand,editcarcolour,editcusid;
-    Button ordercancel,brandorder,orderview;
+    Button ordercancel,brandorder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,6 @@ public class BrandNewForm extends AppCompatActivity {
         editcusid = (EditText)findViewById(R.id.cusID);
 
         ordercancel = (Button)findViewById(R.id.checkDelete);
-        orderview = (Button)findViewById(R.id.viewOrder);
         brandorder = (Button)findViewById(R.id.checkPay);
 
         ordercancel.setOnClickListener(
@@ -44,7 +43,7 @@ public class BrandNewForm extends AppCompatActivity {
         );
 
         AddData();
-        ViewRawData();
+
     }
 
     public void AddData(){
@@ -73,42 +72,5 @@ public class BrandNewForm extends AppCompatActivity {
                     Toast.makeText(BrandNewForm.this,"Data is not inserted",Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    public void ViewRawData(){
-        orderview.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Cursor res = myDb.getRowData(editcusid.getText().toString());
-                        if (res.getCount() == 0){
-                            //show message
-                            return;
-                        }
-                        StringBuffer buffer = new StringBuffer();
-                        while(res.moveToNext()) {
-                            buffer.append("ORDER_ID :" + res.getString(0) + "\n");
-                            buffer.append("CUS_ID :" + res.getString(1) + "\n");
-                            buffer.append("CAR_NAME :" + res.getString(2) + "\n");
-                            buffer.append("CAR_MODEL :" + res.getString(3) + "\n");
-                            buffer.append("MODEL_YEAR :" + res.getString(4) + "\n");
-                            buffer.append("CAR_BRAND :" + res.getString(5) + "\n");
-                            buffer.append("CAR_COLOUR :" + res.getString(6) + "\n");
-
-                            //show message
-                            showMessage("Data", buffer.toString());
-                        }
-                    }
-                }
-        );
-    }
-
-    public void showMessage(String title, String Message){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(title);
-        builder.setMessage(Message);
-        builder.show();
     }
 }
