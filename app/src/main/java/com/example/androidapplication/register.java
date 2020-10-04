@@ -43,21 +43,37 @@ public class register extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        Intent m = new Intent(view.getContext(),Registerview.class);
-                        m.putExtra("fullname",fullname.getText().toString());
-                        m.putExtra("phoneno",phoneno.getText().toString());
-                        m.putExtra("email",email.getText().toString());
-                        m.putExtra("address",address.getText().toString());
-                        m.putExtra("username",username.getText().toString());
-                        m.putExtra("Password",password.getText().toString());
-                        startActivity(m);
+                       // boolean isInserted =  myDb.insertRegisterData(fullname.getText().toString(), phoneno.getText().toString(), email.getText().toString(), address.getText().toString(), username.getText().toString(),password.getText().toString(), repassword.getText().toString());
+                        // check if any of the fields are vaccant
+                        if(fullname.equals("")||phoneno.equals("")||email.equals("")||address.equals("")||username.equals("")||password.equals("")||repassword.equals(""))
+                        {
+                            Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        else if (!password.equals(repassword)) {
+                            // check if both password matches
+                            Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        else {
 
+                            Intent m = new Intent(view.getContext(),Registerview.class);
+                            m.putExtra("fullname",fullname.getText().toString());
+                            m.putExtra("phoneno",phoneno.getText().toString());
+                            m.putExtra("email",email.getText().toString());
+                            m.putExtra("address",address.getText().toString());
+                            m.putExtra("username",username.getText().toString());
+                            m.putExtra("Password",password.getText().toString());
+                            startActivity(m);
+                            // Save the Data in Database
+                            boolean isInserted = myDb.insertRegisterData(fullname.getText().toString(), phoneno.getText().toString(), email.getText().toString(), address.getText().toString(), username.getText().toString(), password.getText().toString(), repassword.getText().toString());
+                            if (isInserted == true)
+                                Toast.makeText(register.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                            else
+                                Toast.makeText(register.this, "Data not Inserted", Toast.LENGTH_LONG).show();
 
-                        boolean isInserted =  myDb.insertRegisterData(fullname.getText().toString(), phoneno.getText().toString(), email.getText().toString(), address.getText().toString(), username.getText().toString(),password.getText().toString(), repassword.getText().toString());
-                        if(isInserted == true)
-                            Toast.makeText(register.this,"Data Inserted",Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(register.this,"Data not Inserted",Toast.LENGTH_LONG).show();
+                        }
+
                     }
                 });
 
