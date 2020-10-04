@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bckground"
+    android:background="@drawable/back3"
     android:orientation="vertical"
     tools:context=".BrandNewForm">
 
@@ -226,10 +226,9 @@
 
         <Button
             android:id="@+id/checkPay"
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="35dp"
-            android:layout_marginStart="304dp"
-            android:layout_marginLeft="304dp"
+            android:layout_marginStart="244dp"
             android:layout_marginTop="492dp"
             android:background="@android:color/holo_green_light"
             android:text="@string/button16"
@@ -240,29 +239,14 @@
 
         <Button
             android:id="@+id/checkDelete"
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="35dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="36dp"
+            android:layout_marginStart="56dp"
             android:layout_marginTop="492dp"
             android:background="@android:color/holo_red_dark"
             android:text="@string/button15"
             android:textColor="#FFEBEE"
             android:textStyle="bold|italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/viewOrder"
-            android:layout_width="80dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="172dp"
-            android:layout_marginLeft="172dp"
-            android:layout_marginTop="492dp"
-            android:background="@android:color/holo_orange_dark"
-            android:text="VIEW"
-            android:textColor="#FBFBFB"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

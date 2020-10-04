@@ -51,7 +51,7 @@ public class ShowRecordsTest {
 
 
 
-    /*   public void DeleteRecords() throws CursorIndexOutOfBoundsException{
+    /*public void DeleteRecords() throws CursorIndexOutOfBoundsException{
            String id;
            DatabaseHelper ui1 = new DatabaseHelper(String);
            ui1.
@@ -59,8 +59,9 @@ public class ShowRecordsTest {
            String id = "1";
            boolean result = DatabaseHelper.deleteInfo( id);
            assertTrue(result);
-       }
-   */
+    }*/
+
+
     @After
     // IT19170176 - FERNANDO W.N.D -CarMart Notices
     public void tearDown() throws Exception
