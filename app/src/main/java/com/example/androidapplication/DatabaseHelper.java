@@ -3,9 +3,6 @@ package com.example.androidapplication;
 // IT19170176
 // FERNANDO W.N.D
 // CarMart Notices
-
-
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
