@@ -116,5 +116,21 @@
     <string name="notices">Notices</string>
 
 
+    <string name="nameerror">Enter a valid name</string>
+    <string name="emailerror">Enter a valid email</string>
+    <string name="mobileerror">Enter a valid mobile</string>
+    <string name="noticeerror">Enter a valid notice</string>
+    <string name="n_enter_price">price</string>
+    <string name="invalid_name">Please Enter Valid Name</string>
+    <string name="invalid_mobile">Please Enter a Valid Number</string>
+    <string name="invalid_email">Enter Valid Email</string>
+    <string name="invalid_notice">Please enter Notice Information</string>
+    <string name="enter_province">Enter Province</string>
+    <string name="channel_description">channel Description</string>
+    <string name="channel_name">channel name</string>
+    <string name="saveInfoBt">Add Notice</string>
+    <string name="province">Enter Province</string>
+
+
 
 </resources>

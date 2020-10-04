@@ -9,6 +9,9 @@
     app:contentPadding="3dp"
     app:cardElevation="3dp"
     app:cardBackgroundColor="@color/whiteColor">
+    // IT19170176
+    // FERNANDO W.N.D
+    // CarMart Notices
     <RelativeLayout
 
         android:layout_width="match_parent"
@@ -30,15 +33,14 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp">
-
             <TextView
-                android:id="@+id/heading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/heading"
                 android:text="@string/n_heading_of_notice"
-                android:textColor="@color/blackColor"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:textColor="@color/blackColor"
 
                 />
             <TextView
@@ -68,6 +70,8 @@
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/blackColor"
                 />
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
