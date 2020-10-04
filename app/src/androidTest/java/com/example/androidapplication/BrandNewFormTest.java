@@ -36,7 +36,6 @@ public class BrandNewFormTest {
         onView(withId(R.id.checkPay)).perform(click());
         Activity nextActivity = getInstrumentation().waitForMonitorWithTimeout(monitor,500);
         assertNotNull(nextActivity);
-
         nextActivity.finish();
     }
 
