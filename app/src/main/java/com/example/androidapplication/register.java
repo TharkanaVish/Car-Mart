@@ -34,6 +34,8 @@ public class register extends AppCompatActivity {
         repassword = (EditText) findViewById(R.id.repassword);
 
         register = (Button) findViewById(R.id.register);
+
+
         AddAppData();
 
     }
@@ -43,9 +45,16 @@ public class register extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                       // boolean isInserted =  myDb.insertRegisterData(fullname.getText().toString(), phoneno.getText().toString(), email.getText().toString(), address.getText().toString(), username.getText().toString(),password.getText().toString(), repassword.getText().toString());
+                        String empty = "";
+                        String cfname = fullname.getText().toString();
+                        String cpnum = phoneno.getText().toString();
+                        String cemail = email.getText().toString();
+                        String caddress = address.getText().toString();
+                        String cusr = username.getText().toString();
+                        String cpwd = password.getText().toString();
+                        String crpwd = repassword.getText().toString();
                         // check if any of the fields are vaccant
-                        if(fullname.equals("")||phoneno.equals("")||email.equals("")||address.equals("")||username.equals("")||password.equals("")||repassword.equals(""))
+                        if(cfname.matches("")||cpnum.matches("")||cemail.matches("")||caddress.matches("")||cusr.matches("")||cpwd.matches("")||crpwd.matches(""))
                         {
                             Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_LONG).show();
                             return;

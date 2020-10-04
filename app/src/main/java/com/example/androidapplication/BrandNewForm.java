@@ -50,6 +50,33 @@ public class BrandNewForm extends AppCompatActivity {
         brandorder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String cname = editcarname.getText().toString();
+                String cmodel = editcarmodel.getText().toString();
+                String cmodelyear = editmodelyear.getText().toString();
+                String cbrand = editcarbrand.getText().toString();
+                String ccolour = editcarcolour.getText().toString();
+
+
+                if(cname.matches("") || cmodel.matches("") || cmodelyear.matches("") || cbrand.matches("") || ccolour.matches("")){
+                    Toast.makeText(getApplicationContext(), " Please Input data for all the Fields", Toast.LENGTH_SHORT).show();
+                    return;
+
+                }
+                else {
+                    boolean isInserted = myDb.insertRowData(editcarname.getText().toString(),
+                            editcarmodel.getText().toString(),
+                            editmodelyear.getText().toString(),
+                            editcarbrand.getText().toString(),
+                            editcarcolour.getText().toString(),
+                            editcusid.getText().toString());
+
+                    if(isInserted = true)
+                        Toast.makeText(BrandNewForm.this,"Data is inserted",Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(BrandNewForm.this,"Data is not inserted",Toast.LENGTH_LONG).show();
+                }
+
                 Intent i = new Intent(view.getContext(),Checkout.class);
                 i.putExtra("editcarname",editcarname.getText().toString());
                 i.putExtra("editcarmodel",editcarmodel.getText().toString());
