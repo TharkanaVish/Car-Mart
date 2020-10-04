@@ -233,28 +233,32 @@
         android:id="@+id/view"
         android:layout_width="62dp"
         android:layout_height="46dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="628dp"
+        android:layout_marginEnd="144dp"
         android:background="@drawable/button_round"
         android:fontFamily="@font/abril_fatface"
         android:text="VIEW"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/confirm1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.915" />
 
     <Button
         android:id="@+id/delete1"
         android:layout_width="77dp"
         android:layout_height="47dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="628dp"
         android:background="@drawable/button_round"
         android:fontFamily="@font/abril_fatface"
         android:text="DELETE"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.915" />
 
     <Button
         android:id="@+id/change1"

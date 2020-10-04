@@ -22,7 +22,6 @@
         <activity android:name=".Checkout" />
         <activity android:name=".BrandNewForm" />
         <activity android:name=".Homepage">
-
         </activity>
         <activity android:name=".ListCarViewCustomer" />
         <activity android:name=".UpdateACar" />
@@ -31,13 +30,9 @@
         <activity android:name=".EditRecordActivity" />
         <activity android:name=".ShowRecords"></activity>
         <activity android:name=".AddRecordActivity" />
-        <activity android:name=".register" ><intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-
-        <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
-        <activity android:name=".paymentview" />
-        <activity android:name=".payment" />
+        <activity android:name=".register" ></activity>
+        <activity android:name=".paymentview" ></activity>
+        <activity android:name=".payment" ></activity>
         <activity android:name=".MainActivity" />
 
         <meta-data
