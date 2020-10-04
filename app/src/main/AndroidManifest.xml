@@ -14,25 +14,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Registerview"><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
+        <activity android:name=".Registerview"></activity>
+        <activity android:name=".Checkout" ></activity>
+        <activity android:name=".BrandNewForm" ></activity>
+        <activity android:name=".Homepage"><intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter></activity>
-        <activity android:name=".Checkout" />
-        <activity android:name=".BrandNewForm" />
-        <activity android:name=".Homepage">
-        </activity>
         <activity android:name=".ListCarViewCustomer" />
         <activity android:name=".UpdateACar" />
         <activity android:name=".AddNewCar" />
         <activity android:name=".ListCarView" />
         <activity android:name=".EditRecordActivity" />
-        <activity android:name=".ShowRecords"></activity>
+        <activity android:name=".ShowRecords"/>
         <activity android:name=".AddRecordActivity" />
-        <activity android:name=".register" ></activity>
-        <activity android:name=".paymentview" ></activity>
-        <activity android:name=".payment" ></activity>
+        <activity android:name=".register" />
+        <activity android:name=".paymentview" />
+        <activity android:name=".payment" />
         <activity android:name=".MainActivity" />
 
         <meta-data
