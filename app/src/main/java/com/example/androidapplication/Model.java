@@ -1,8 +1,14 @@
 package com.example.androidapplication;
 
+// IT19170176
+// FERNANDO W.N.D
+// CarMart Notices
+
+
+
 public class Model {
 
-    String id, image, heading, name, mobile, email, notice_info, add_notice, update_notice;
+    String id, image, heading, name, mobile, email,province, notice_info, add_notice, update_notice;
 
     public Model(String id, String image, String heading, String name, String mobile, String email, String notice_info, String add_notice, String update_notice) {
         this.id = id;
@@ -11,6 +17,8 @@ public class Model {
         this.name = name;
         this.mobile = mobile;
         this.email = email;
+
+
         this.notice_info = notice_info;
         this.add_notice = add_notice;
         this.update_notice = update_notice;
@@ -64,6 +72,7 @@ public class Model {
         this.email = email;
     }
 
+
     public String getNotice_info() {
         return notice_info;
     }
@@ -87,7 +96,9 @@ public class Model {
     public void setUpdate_notice(String update_notice) {
         this.update_notice = update_notice;
     }
-}
 
+    public void toLowerCase() {
+    }
+}
 
 

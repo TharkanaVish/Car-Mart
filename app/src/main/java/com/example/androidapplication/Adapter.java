@@ -1,12 +1,22 @@
 package com.example.androidapplication;
+
+// IT19170176
+// FERNANDO W.N.D
+// CarMart Notices
+
+
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,20 +26,31 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
+
+public class Adapter extends RecyclerView.Adapter<Adapter.Holder> /*implements Filterable */{
 
     private Context context;
     private ArrayList<Model> arrayList;
+    ArrayList<Model> arrayListAll;
     //dataBase object
+
     DatabaseHelper databaseHelper;
+
+    public Adapter(ArrayList<Model>arrayList){
+        this.arrayList=arrayList;
+        this.arrayListAll = new ArrayList<>(arrayList);
+    }
 
     public Adapter(Context context, ArrayList<Model> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
+        this.arrayListAll = new ArrayList<>(arrayList);
         //initialize here
         databaseHelper = new DatabaseHelper(context);
     }
+
 
     @NonNull
     @Override
@@ -50,6 +71,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         final String name = model.getName();
         final String mobile = model.getMobile();
         final String email = model.getEmail();
+
+
         final String notice_info = model.getNotice_info();
         final String add_notice = model.getAdd_notice();
         final String update_notice = model.getUpdate_notice();
@@ -59,6 +82,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         holder.name.setText(name);
         holder.mobile.setText(mobile);
         holder.email.setText(email);
+
+
         holder.notice_info.setText(notice_info);
 
 
@@ -79,6 +104,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
                 );
             }
+
+
         });
         //when long press on item ,show an alert for delete an item
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -87,16 +114,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
                 deleteDialog(
                         ""+id
-
-
                 );
                 return false;
             }
         });
-
-
     }
-
     private void deleteDialog(final String id) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -168,7 +190,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
     class Holder extends RecyclerView.ViewHolder{
 
         ImageView profileIv;
-        TextView heading, name, mobile, email, notice_info;
+        TextView heading, name, mobile, email,province, notice_info;
         ImageButton editButton;
 
         public Holder(@NonNull View itemView) {

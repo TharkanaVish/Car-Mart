@@ -1,35 +1,57 @@
 package com.example.androidapplication;
+// IT19170176
+// FERNANDO W.N.D
+// CarMart Notices
+
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import  androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
+import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class AddRecordActivity extends AppCompatActivity {
 
-    private ImageView pImageView;
-    private EditText pheadingEt,pnameEt,pmobileEt,pemailEt,pnotice_infoEt;
+    ImageView pImageView;
+    EditText pheadingEt,pnameEt,pmobileEt,pemailEt,pprovinceEt,pnotice_infoEt;
     Button saveInfoBt;
     ActionBar actionBar;
+    AwesomeValidation awesomeValidation;
+
+
 
     private static  final int  CAMERA_REQUEST_CODE=100;
     private static final int STORAGE_REQUEST_CODE =101;
@@ -41,15 +63,14 @@ public class AddRecordActivity extends AppCompatActivity {
     private String[] storagePermissions;
 
     private Uri imageUri;
-    private String heading, name, mobile, email, notice_info, timeStamp;
+    private String heading, name, mobile, email,province, notice_info, timeStamp;
     private  DatabaseHelper dbHelper;
-
-
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_add_record);
 
 
@@ -63,9 +84,62 @@ public class AddRecordActivity extends AppCompatActivity {
         pnameEt = findViewById(R.id.name);
         pmobileEt = findViewById(R.id.mobile);
         pemailEt = findViewById(R.id.email);
-        pnotice_infoEt = findViewById(R.id.notice_info);
+        pprovinceEt=findViewById(R.id.province);
+        // Setup field validators.
+        //mEmailValidator = new EmailValidator();
+        //pemailEt.addTextChangedListener(mEmailValidator);
 
+        pnotice_infoEt = findViewById(R.id.notice_info);
         saveInfoBt = findViewById(R.id.add_notice);
+
+
+
+
+        saveInfoBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        //initialize Validation Style
+
+
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
+        //Add Validation for name
+        awesomeValidation.addValidation(this,R.id.name, RegexTemplate.NOT_EMPTY,R.string.invalid_name);
+        //For  mobile Number
+        //awesomeValidation.addValidation(this,R.id.mobile,"[5-9]{1}[0-9]{9}$",R.string.invalid_mobile);
+        awesomeValidation.addValidation(this,R.id.mobile, RegexTemplate.NOT_EMPTY,R.string.invalid_mobile);
+        //For Email
+        awesomeValidation.addValidation(this,R.id.email, Patterns.EMAIL_ADDRESS,R.string.invalid_email);
+        //For notice information
+        awesomeValidation.addValidation(this,R.id.notice_info, RegexTemplate.NOT_EMPTY,R.string.invalid_notice);
+
+
+
+        saveInfoBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //check Validation
+                if(awesomeValidation.validate()){
+                    //on success
+
+                    Toast.makeText(getApplicationContext(),"Form Validate Successfully",Toast.LENGTH_SHORT).show();
+                    //when click on save button insert the data to db
+                    getData();
+                    startActivity(new Intent(AddRecordActivity.this, ShowRecords.class));
+                    Toast.makeText(AddRecordActivity.this,"Add Successfully",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"Validation Failed",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
         cameraPermissions = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions=new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
@@ -79,16 +153,6 @@ public class AddRecordActivity extends AppCompatActivity {
 
             }
         });
-        saveInfoBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //when click on save button insert the data to db
-                getData();
-                startActivity(new Intent(AddRecordActivity.this, ShowRecords.class));
-                Toast.makeText(AddRecordActivity.this,"Add Successfully",Toast.LENGTH_SHORT).show();
-            }
-        });
-
     }
 
     private void getData() {
@@ -96,9 +160,12 @@ public class AddRecordActivity extends AppCompatActivity {
         name = ""+pnameEt.getText().toString().trim();
         mobile = ""+pmobileEt.getText().toString().trim();
         email = ""+pemailEt.getText().toString().trim();
+
         notice_info = ""+pnotice_infoEt.getText().toString().trim();
 
         timeStamp = ""+System.currentTimeMillis();
+
+
         dbHelper.insertInfo(
                 ""+heading,
                 ""+name,
@@ -108,12 +175,8 @@ public class AddRecordActivity extends AppCompatActivity {
                 ""+notice_info,
                 ""+timeStamp,
                 ""+timeStamp
+        );}
 
-        );
-
-
-
-    }
 
     private void imagePickDialog() {
 

@@ -1,6 +1,19 @@
 package com.example.androidapplication;
 
 
+// IT19170176
+// FERNANDO W.N.D
+// CarMart Notices
+
+
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.ContentValues;
@@ -9,6 +22,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -16,12 +30,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -32,6 +43,7 @@ public class EditRecordActivity extends AppCompatActivity {
     private EditText pheadingEt,pnameEt,pmobileEt,pemailEt,pnotice_infoEt;
     Button saveInfoBt;
     ActionBar actionBar;
+    AwesomeValidation awesomeValidation;
 
     private static  final int  CAMERA_REQUEST_CODE=100;
     private static final int STORAGE_REQUEST_CODE =101;
@@ -44,7 +56,7 @@ public class EditRecordActivity extends AppCompatActivity {
 
     private Uri imageUri;
 
-    private String id, heading, name, mobile, email, notice_info, add_notice, update_notice;
+    private String id, heading, name, mobile, email,notice_info, add_notice, update_notice;
     private boolean editMode = false;
     private  DatabaseHelper dbHelper;
 
@@ -64,11 +76,48 @@ public class EditRecordActivity extends AppCompatActivity {
         pnameEt = findViewById(R.id.name);
         pmobileEt = findViewById(R.id.mobile);
         pemailEt = findViewById(R.id.email);
+
+
         pnotice_infoEt = findViewById(R.id.notice_info);
 
-        ///there was add_notice and i chnged to addFabButton v4 -13.24sec
+        ///there was add_notice and i changed to addFabButton v4 -13.24sec
         saveInfoBt = findViewById(R.id.add_notice);
+        //saveInfoBt = findViewById(R.id.addFabButton);
+//initialize Validation Style
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        //Add Validation for name
+        awesomeValidation.addValidation(this,R.id.name, RegexTemplate.NOT_EMPTY,R.string.invalid_name);
+        //For  mobile Number
+        //awesomeValidation.addValidation(this,R.id.mobile,"[5-9]{1}[0-9]{9}$",R.string.invalid_mobile);
+        awesomeValidation.addValidation(this,R.id.mobile, RegexTemplate.NOT_EMPTY,R.string.invalid_mobile);
+        //For Email
+        awesomeValidation.addValidation(this,R.id.email, Patterns.EMAIL_ADDRESS,R.string.invalid_email);
+        //For notice information
+        awesomeValidation.addValidation(this,R.id.notice_info, RegexTemplate.NOT_EMPTY,R.string.invalid_notice);
 
+
+        saveInfoBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //check Validation
+                if(awesomeValidation.validate()){
+                    //on success
+
+                    Toast.makeText(getApplicationContext(),"Form Validate Successfully",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(EditRecordActivity.this, ShowRecords.class));
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"Validation Failed",Toast.LENGTH_SHORT).show();
+                }
+                getData();
+                Toast.makeText(EditRecordActivity.this,"Add Successfully",Toast.LENGTH_SHORT).show();
+                //when click on save button insert the data to db
+                //getData();
+                //startActivity(new Intent(AddRecordActivity.this, ShowRecords.class));
+                //Toast.makeText(AddRecordActivity.this,"Add Successfully",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         Intent intent = getIntent();
         editMode = intent.getBooleanExtra("editMode", editMode);
@@ -77,6 +126,8 @@ public class EditRecordActivity extends AppCompatActivity {
         name = intent.getStringExtra("NAME");
         mobile = intent.getStringExtra("MOBILE");
         email = intent.getStringExtra("EMAIL");
+
+
         imageUri = Uri.parse(intent.getStringExtra("IMAGE"));
         notice_info = intent.getStringExtra("NOTICE_INFO");
         add_notice = intent.getStringExtra("ADD_NOTICE");
@@ -91,6 +142,8 @@ public class EditRecordActivity extends AppCompatActivity {
             name = intent.getStringExtra("NAME");
             mobile = intent.getStringExtra("MOBILE");
             email = intent.getStringExtra("EMAIL");
+
+
             imageUri = Uri.parse(intent.getStringExtra("IMAGE"));
             notice_info = intent.getStringExtra("NOTICE_INFO");
             add_notice = intent.getStringExtra("ADD_NOTICE");
@@ -100,6 +153,8 @@ public class EditRecordActivity extends AppCompatActivity {
             pnameEt.setText(name);
             pmobileEt.setText(mobile);
             pemailEt.setText(email);
+
+
             pnotice_infoEt.setText(notice_info);
 
             if (imageUri.toString().equals("null")) {
@@ -112,10 +167,6 @@ public class EditRecordActivity extends AppCompatActivity {
         else{
             actionBar.setTitle("Add Information");
         }
-
-
-
-
 
         cameraPermissions = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions=new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -130,14 +181,42 @@ public class EditRecordActivity extends AppCompatActivity {
 
             }
         });
+
+
+        //initialize Validation Style
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        //Add Validation for name
+        awesomeValidation.addValidation(this,R.id.name, RegexTemplate.NOT_EMPTY,R.string.invalid_name);
+        //For  mobile Number
+        //awesomeValidation.addValidation(this,R.id.mobile,"[5-9]{1}[0-9]{9}$",R.string.invalid_mobile);
+        awesomeValidation.addValidation(this,R.id.mobile, RegexTemplate.NOT_EMPTY,R.string.invalid_mobile);
+        //For Email
+        awesomeValidation.addValidation(this,R.id.email, Patterns.EMAIL_ADDRESS,R.string.invalid_email);
+        //For notice information
+        awesomeValidation.addValidation(this,R.id.notice_info, RegexTemplate.NOT_EMPTY,R.string.invalid_notice);
+
+
+
         saveInfoBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //when click on save button insert the data to db
                 getData();
+                //check Validation
+                if(awesomeValidation.validate()){
+                    //on success
 
-                startActivity(new Intent(EditRecordActivity.this, ShowRecords.class));
-                Toast.makeText(EditRecordActivity.this,"Update Successfully",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Form Validate Successfully",Toast.LENGTH_SHORT).show();
+                    getData();
+                    startActivity(new Intent(EditRecordActivity.this, ShowRecords.class));
+                    Toast.makeText(EditRecordActivity.this,"Update Successfully",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"Validation Failed",Toast.LENGTH_SHORT).show();
+                }
+                //startActivity(new Intent(EditRecordActivity.this, ShowRecords.class));
+                // Toast.makeText(EditRecordActivity.this,"Update Successfully",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -148,6 +227,8 @@ public class EditRecordActivity extends AppCompatActivity {
         name = "" + pnameEt.getText().toString().trim();
         mobile = "" + pmobileEt.getText().toString().trim();
         email = "" + pemailEt.getText().toString().trim();
+
+
         notice_info = "" + pnotice_infoEt.getText().toString().trim();
 
         if (editMode) {
@@ -171,19 +252,14 @@ public class EditRecordActivity extends AppCompatActivity {
                     "" + heading,
                     "" + name,
                     "" + mobile,
-                    "" + email,
-                    "" + imageUri,
-                    "" + notice_info,
-                    "" + timeStamp,
-                    "" + timeStamp
+                    "" + ""+email,
+                    ""+imageUri,
+                    ""+notice_info,
+                    ""+add_notice,
+                    ""+update_notice
 
             );
-
-
-
         }
-
-
     }
 
     private void imagePickDialog() {
@@ -328,7 +404,6 @@ public class EditRecordActivity extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {

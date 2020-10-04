@@ -2,6 +2,13 @@ package com.example.androidapplication;
 
 
 
+// IT19170176
+// FERNANDO W.N.D
+// CarMart Notices
+
+
+
+
 public class Constants {
     //db name
     public static final String DB_NAME ="NOTICE_INFO_DB";
