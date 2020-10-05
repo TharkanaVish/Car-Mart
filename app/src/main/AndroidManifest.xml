@@ -10,21 +10,28 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
+        android:label="CarMart"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Registerview"></activity>
         <activity android:name=".Checkout" ></activity>
-        <activity android:name=".BrandNewForm" ><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+        <activity android:name=".BrandNewForm" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter></activity>
+
+
         <activity android:name=".Homepage"></activity>
-        <activity android:name=".ListCarViewCustomer" />
+        <activity android:name=".ListCarViewCustomer">  </activity>
+
         <activity android:name=".UpdateACar" />
         <activity android:name=".AddNewCar" />
-        <activity android:name=".ListCarView" />
+        <activity android:name=".ListCarView">
+
+        </activity>
         <activity android:name=".EditRecordActivity" />
         <activity android:name=".ShowRecords"/>
         <activity android:name=".AddRecordActivity" />
