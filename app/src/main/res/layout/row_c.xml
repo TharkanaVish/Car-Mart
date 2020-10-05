@@ -8,7 +8,7 @@
     app:cardUseCompatPadding="true"
     app:contentPadding="3dp"
     app:cardElevation="3dp"
-    app:cardBackgroundColor="@color/background3">
+    app:cardBackgroundColor="@color/white">
     <RelativeLayout
 
         android:layout_width="match_parent"
@@ -16,11 +16,11 @@
 
         <ImageView
             android:id="@+id/profileIv_c"
-            android:layout_width="130dp"
-            android:layout_height="99dp"
+            android:layout_width="200dp"
+            android:layout_height="170dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_action_profile"
-            tools:srcCompat="@drawable/ic_action_profile" />
+            android:src="@drawable/addimage2"
+            tools:srcCompat="@drawable/addimage2" />
         <LinearLayout
 
             android:layout_width="match_parent"
@@ -30,13 +30,14 @@
             android:layout_toEndOf="@+id/profileIv_c"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp">
+            android:layout_marginStart="8dp">
 
             <TextView
                 android:id="@+id/brand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/s_brand"
+                android:fontFamily="sans-serif-light"
                 android:textColor="@color/black"
                 android:textSize="18sp"
 
