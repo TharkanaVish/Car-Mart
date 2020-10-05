@@ -34,6 +34,8 @@ public class register extends AppCompatActivity {
         repassword = (EditText) findViewById(R.id.repassword);
 
         register = (Button) findViewById(R.id.register);
+
+
         AddAppData();
 
     }
@@ -43,21 +45,44 @@ public class register extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        Intent m = new Intent(view.getContext(),Registerview.class);
-                        m.putExtra("fullname",fullname.getText().toString());
-                        m.putExtra("phoneno",phoneno.getText().toString());
-                        m.putExtra("email",email.getText().toString());
-                        m.putExtra("address",address.getText().toString());
-                        m.putExtra("username",username.getText().toString());
-                        m.putExtra("Password",password.getText().toString());
-                        startActivity(m);
+                        String empty = "";
+                        String cfname = fullname.getText().toString();
+                        String cpnum = phoneno.getText().toString();
+                        String cemail = email.getText().toString();
+                        String caddress = address.getText().toString();
+                        String cusr = username.getText().toString();
+                        String cpwd = password.getText().toString();
+                        String crpwd = repassword.getText().toString();
+                        // check if any of the fields are vaccant
+                        if(cfname.matches("")||cpnum.matches("")||cemail.matches("")||caddress.matches("")||cusr.matches("")||cpwd.matches("")||crpwd.matches(""))
+                        {
+                            Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        else if (!password.equals(repassword)) {
+                            // check if both password matches
+                            Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        else {
 
+                            Intent m = new Intent(view.getContext(),Registerview.class);
+                            m.putExtra("fullname",fullname.getText().toString());
+                            m.putExtra("phoneno",phoneno.getText().toString());
+                            m.putExtra("email",email.getText().toString());
+                            m.putExtra("address",address.getText().toString());
+                            m.putExtra("username",username.getText().toString());
+                            m.putExtra("Password",password.getText().toString());
+                            startActivity(m);
+                            // Save the Data in Database
+                            boolean isInserted = myDb.insertRegisterData(fullname.getText().toString(), phoneno.getText().toString(), email.getText().toString(), address.getText().toString(), username.getText().toString(), password.getText().toString(), repassword.getText().toString());
+                            if (isInserted == true)
+                                Toast.makeText(register.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                            else
+                                Toast.makeText(register.this, "Data not Inserted", Toast.LENGTH_LONG).show();
 
-                        boolean isInserted =  myDb.insertRegisterData(fullname.getText().toString(), phoneno.getText().toString(), email.getText().toString(), address.getText().toString(), username.getText().toString(),password.getText().toString(), repassword.getText().toString());
-                        if(isInserted == true)
-                            Toast.makeText(register.this,"Data Inserted",Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(register.this,"Data not Inserted",Toast.LENGTH_LONG).show();
+                        }
+
                     }
                 });
 

@@ -60,26 +60,42 @@ public class payment extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        Intent m = new Intent(view.getContext(),paymentview.class);
-                        m.putExtra("cardtype",cardtype.getText().toString());
-                        m.putExtra("cardnumber",cardnumber.getText().toString());
-                        m.putExtra("cvv",cvv.getText().toString());
-                        m.putExtra("expdate",expdate.getText().toString());
-                        m.putExtra("cardholdername",cardholdername.getText().toString());
-                        startActivity(m);
+                        //validation
+                        String ctype = cardtype.getText().toString();
+                        String cnumb = cardnumber.getText().toString();
+                        String ccvv = cvv.getText().toString();
+                        String cexdate = expdate.getText().toString();
+                        String chname = cardholdername.getText().toString();
 
-
-                        boolean isInserted =  myDb.insertPaymentData(cardtype.getText().toString(),
-                                cardnumber.getText().toString(),
-                                cvv.getText().toString(),
-                                expdate.getText().toString(),
-                                cardholdername.getText().toString());
-
-                        if(isInserted = true)
-                            Toast.makeText(payment.this,"Payment Details are Inserted",Toast.LENGTH_LONG).show();
+                        if (ctype.matches("")|| cnumb.matches("") || ccvv.matches("") || cexdate.matches("") || chname.matches("") )
+                        {
+                            Toast.makeText(getApplicationContext(), "Field Vaccant", Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         else
-                            Toast.makeText(payment.this,"Payment details are not Inserted",Toast.LENGTH_LONG).show();
+                            {
 
+                            Intent m = new Intent(view.getContext(),paymentview.class);
+                            m.putExtra("cardtype",cardtype.getText().toString());
+                            m.putExtra("cardnumber",cardnumber.getText().toString());
+                            m.putExtra("cvv",cvv.getText().toString());
+                            m.putExtra("expdate",expdate.getText().toString());
+                            m.putExtra("cardholdername",cardholdername.getText().toString());
+                            startActivity(m);
+
+
+                            boolean isInserted = myDb.insertPaymentData(cardtype.getText().toString(),
+                                    cardnumber.getText().toString(),
+                                    cvv.getText().toString(),
+                                    expdate.getText().toString(),
+                                    cardholdername.getText().toString());
+
+                            if (isInserted = true)
+                                Toast.makeText(payment.this, "Payment Details are Inserted", Toast.LENGTH_LONG).show();
+                            else
+                                Toast.makeText(payment.this, "Payment details are not Inserted", Toast.LENGTH_LONG).show();
+
+                        }
                     }
                 });
 

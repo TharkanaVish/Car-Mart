@@ -45,7 +45,8 @@ public class AddNewCar extends AppCompatActivity {
     private Uri imageUri;
     private String brand,Model,transmission,ModYear,mileage,fuel,contact, timeStamp;
     private  DatabaseHelper dbHelper;
-
+    private boolean True;
+    private boolean False;
 
 
     @SuppressLint("WrongViewCast")
@@ -73,7 +74,7 @@ public class AddNewCar extends AppCompatActivity {
         cameraPermissions = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions=new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-
+        //initialize database object in  main function
         dbHelper = new DatabaseHelper(this);
 
         cImageView.setOnClickListener(new View.OnClickListener() {
@@ -86,10 +87,9 @@ public class AddNewCar extends AppCompatActivity {
         addCarbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //when click on save button insert the data to db
                 getData();
-                startActivity(new Intent(AddNewCar.this, ListCarView.class));
-                Toast.makeText(AddNewCar.this,"Added Successfully",Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -105,21 +105,42 @@ public class AddNewCar extends AppCompatActivity {
         contact = ""+ccontact.getText().toString().trim();
 
         timeStamp = ""+System.currentTimeMillis();
-        dbHelper.insertACar(
-                ""+brand,
-                ""+Model,
-                ""+transmission,
-                ""+ModYear,
-                ""+imageUri,
-                ""+mileage,
-                ""+fuel,
-                ""+contact,
-                ""+timeStamp,
-                ""+timeStamp
 
-        );
+        //my added validation
+        if(brand =="" | Model==""| transmission =="" | ModYear =="" | mileage =="" |fuel=="" |contact==""){
 
+            Toast.makeText(AddNewCar.this,"Please fill out all the fields",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(this.ModYear.length() != 4 ){
 
+            Toast.makeText(AddNewCar.this,"Please Enter a Valid Model Year",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(this.contact.length() != 10 ){
+
+            Toast.makeText(AddNewCar.this,"Please Enter a Valid Phone Number",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        else{
+            dbHelper.insertACar(
+                    "" + brand,
+                    "" + Model,
+                    "" + transmission,
+                    "" + ModYear,
+                    "" + imageUri,
+                    "" + mileage,
+                    "" + fuel,
+                    "" + contact,
+                    "" + timeStamp,
+                    "" + timeStamp
+
+            );
+            startActivity(new Intent(AddNewCar.this, ListCarView.class));
+            Toast.makeText(AddNewCar.this,"Added Successfully",Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -132,9 +153,9 @@ public class AddNewCar extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(which == 0){
-
+                    //if 0 then open the camera and also check the permission of camera
                     if (!checkCameraPermission()){
-
+                        //If permission not granted  then request for camera permission
                         requestCameraPermission();
                     }
                     else{
@@ -157,14 +178,14 @@ public class AddNewCar extends AppCompatActivity {
     }
 
     private void pickFromStorage() {
-
+        //so this function get image from gallery
         Intent galleryIntent = new Intent(Intent.ACTION_PICK);
         galleryIntent.setType("image/*");
         startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_CODE);
     }
 
     private void pickFromCamera() {
-
+        //now get image from camera
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE,"Image title");
         values.put(MediaStore.Images.Media.DESCRIPTION,"Image description");
@@ -269,12 +290,20 @@ public class AddNewCar extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-
+        /* this moves add record activity to main activity */
         onBackPressed();
         return super.onSupportNavigateUp();
 
     }
+    public boolean isMileageValid(String mileage){
 
+        if (mileage.contains("km") || (mileage.contains("Km"))){
+            return True;
+        }
+        else {
+            return False;
+        }
+    }
 
 
 }
