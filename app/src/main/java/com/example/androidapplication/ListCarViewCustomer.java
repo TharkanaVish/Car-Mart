@@ -100,7 +100,7 @@ public class ListCarViewCustomer extends AppCompatActivity {
 
     private void showRecord() {
 
-        AdapterC adapter = new AdapterC(ListCarViewCustomer.this, databaseHelper.getAllData(ConstantsC.C_ADD_CAR + " DESC"),false);
+        AdapterC adapter = new AdapterC(ListCarViewCustomer.this, databaseHelper.getAllCarData(ConstantsC.C_ADD_CAR + " DESC"),false);
         //last added record will be show on top-record sorting
         mRecyclerView.setAdapter(adapter);
     }
