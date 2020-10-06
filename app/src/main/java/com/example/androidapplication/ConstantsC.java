@@ -2,7 +2,7 @@ package com.example.androidapplication;
 
 public class ConstantsC {
     //db name
-    public static final String DB_NAME ="CAR_MART_DB";
+    public static final String DB_NAME ="NOTICE_INFO_DB";
     //db version
     public static final int DB_VERSION =1;
     //db table
