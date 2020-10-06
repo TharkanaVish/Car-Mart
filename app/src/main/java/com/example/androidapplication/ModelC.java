@@ -1,5 +1,7 @@
 package com.example.androidapplication;
 
+//IT19118246
+//Wijesekera S.M
 public class ModelC {
     String id;
     String image;

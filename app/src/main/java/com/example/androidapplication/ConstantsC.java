@@ -1,5 +1,7 @@
 package com.example.androidapplication;
 
+//IT19118246
+//Wijesekera S.M
 public class ConstantsC {
     //db name
     public static final String DB_NAME ="NOTICE_INFO_DB";
@@ -19,7 +21,7 @@ public class ConstantsC {
     public static final String C_CONTACT ="CONTACT";
     public static final String C_ADD_CAR ="ADD_CAR";
     public static final String C_UPDATE_CAR ="UPDATE_CAR";
-    //crate query for table
+
     public static final String CREATE_TABLE ="CREATE TABLE "+ TABLE_NAME +" ("
             + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + C_BRAND +" TEXT,"

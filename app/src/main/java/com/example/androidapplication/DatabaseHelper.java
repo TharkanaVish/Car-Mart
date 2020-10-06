@@ -105,6 +105,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return arrayList;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //IT19118246
+    //Wijesekera S.M
 
     //Insert Car Details-IT19118246
     public long insertACar(String brand, String Model, String transmission, String ModYear,String image, String mileage,
