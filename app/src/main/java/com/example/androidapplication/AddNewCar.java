@@ -290,7 +290,7 @@ public class AddNewCar extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        /* this moves add record activity to main activity */
+
         onBackPressed();
         return super.onSupportNavigateUp();
 

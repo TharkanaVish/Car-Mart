@@ -1,5 +1,7 @@
 package com.example.androidapplication;
 
+//IT19118246
+//Wijesekera S.M
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBar;
 
@@ -13,14 +15,11 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
+import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import java.util.List;
+
 
 
 public class ListCarViewCustomer extends AppCompatActivity {
@@ -30,9 +29,6 @@ public class ListCarViewCustomer extends AppCompatActivity {
     ActionBar actionBar;
     RecyclerView mRecyclerView;
     DatabaseHelper databaseHelper;
-    AdapterC recyclerAdapter;
-    List<ModelC> arrayList;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +37,6 @@ public class ListCarViewCustomer extends AppCompatActivity {
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Cars For Sale");
-
-
 
         mRecyclerView = findViewById(R.id.recyclerView);
 
@@ -69,7 +63,6 @@ public class ListCarViewCustomer extends AppCompatActivity {
             public void onClick(View v) {
 
                 String notificationMsg ="Hello Welcome to the MAD team";
-
 
                 Intent intent = new Intent(ListCarViewCustomer.this, ShowRecords.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
@@ -101,24 +94,22 @@ public class ListCarViewCustomer extends AppCompatActivity {
     private void showRecord() {
 
         AdapterC adapter = new AdapterC(ListCarViewCustomer.this, databaseHelper.getAllCarData(ConstantsC.C_ADD_CAR + " DESC"),false);
-        //last added record will be show on top-record sorting
+
         mRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return super.onSupportNavigateUp();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         showRecord();
-    }
-
-    @Override
-
-    //this funvtion kills all activites.. so
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == event.KEYCODE_BACK){
-            moveTaskToBack(true);
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }
 

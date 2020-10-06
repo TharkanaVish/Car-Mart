@@ -140,4 +140,12 @@ public class ShowRecords extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+    /*
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return super.onSupportNavigateUp();
+
+    }*/
 }
