@@ -71,7 +71,7 @@ public class ListCarViewCustomer extends AppCompatActivity {
                 String notificationMsg ="Hello Welcome to the MAD team";
 
 
-                Intent intent = new Intent(ListCarViewCustomer.this, AddNewCar.class);
+                Intent intent = new Intent(ListCarViewCustomer.this, ShowRecords.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                         | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 PendingIntent pendingIntent = PendingIntent.getActivity(ListCarViewCustomer.this, 0, intent, 0);
@@ -79,7 +79,7 @@ public class ListCarViewCustomer extends AppCompatActivity {
                         NotificationCompat.Builder(ListCarViewCustomer.this, CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_launcher_background)
                         .setContentTitle("-CarMart-")
-                        .setContentText("Add a wish to buy notice")
+                        .setContentText("You Can Add a wish to buy Notice from Here....")
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
                         .setContentIntent(pendingIntent)
