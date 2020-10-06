@@ -81,7 +81,7 @@ public class ShowRecords extends AppCompatActivity {
                 String notificationMsg ="Hello Welcome to the MAD team";
 
                 // Create an explicit intent for an Activity in your app
-                Intent intent = new Intent(ShowRecords.this, ListCarViewCustomer.class);
+                Intent intent = new Intent(ShowRecords.this, AddRecordActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                         | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 PendingIntent pendingIntent = PendingIntent.getActivity(ShowRecords.this, 0, intent, 0);
@@ -89,7 +89,7 @@ public class ShowRecords extends AppCompatActivity {
                         NotificationCompat.Builder(ShowRecords.this, CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_launcher_background)
                         .setContentTitle("-CarMart-")
-                        .setContentText("Do you want to see the cars for sale? Then tap here !!!")
+                        .setContentText("Enter your Vehicle App Notice")
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 // Set the intent that will fire when the user taps the notification
                         .setContentIntent(pendingIntent)
