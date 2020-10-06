@@ -1,5 +1,7 @@
 package com.example.androidapplication;
 
+//IT19118246
+//Wijesekera S.M
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -74,7 +76,7 @@ public class AddNewCar extends AppCompatActivity {
         cameraPermissions = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions=new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-        //initialize database object in  main function
+
         dbHelper = new DatabaseHelper(this);
 
         cImageView.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +89,7 @@ public class AddNewCar extends AppCompatActivity {
         addCarbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //when click on save button insert the data to db
+
                 getData();
 
             }
@@ -153,9 +155,9 @@ public class AddNewCar extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(which == 0){
-                    //if 0 then open the camera and also check the permission of camera
+
                     if (!checkCameraPermission()){
-                        //If permission not granted  then request for camera permission
+
                         requestCameraPermission();
                     }
                     else{
@@ -178,14 +180,14 @@ public class AddNewCar extends AppCompatActivity {
     }
 
     private void pickFromStorage() {
-        //so this function get image from gallery
+
         Intent galleryIntent = new Intent(Intent.ACTION_PICK);
         galleryIntent.setType("image/*");
         startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_CODE);
     }
 
     private void pickFromCamera() {
-        //now get image from camera
+
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE,"Image title");
         values.put(MediaStore.Images.Media.DESCRIPTION,"Image description");
@@ -295,15 +297,5 @@ public class AddNewCar extends AppCompatActivity {
         return super.onSupportNavigateUp();
 
     }
-    public boolean isMileageValid(String mileage){
-
-        if (mileage.contains("km") || (mileage.contains("Km"))){
-            return True;
-        }
-        else {
-            return False;
-        }
-    }
-
 
 }
