@@ -61,6 +61,16 @@ public class Checkout extends AppCompatActivity {
         DeleteRowData();
         ViewRowData();
         UpdateRowData();
+
+        cpay.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(Checkout.this,register.class);
+                        startActivity(i);
+                    }
+                }
+        );
     }
 
 

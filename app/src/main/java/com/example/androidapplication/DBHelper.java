@@ -101,6 +101,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     }
+    //get username and passwords
+    public Cursor getRegisterDetails(String uname,String pwd){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery(" select * from " + TABLE1 + " where UserName == " + uname + " AND Password == " + pwd,null);
+        return res;
+    }
+
     //VIEW PAYMENT DETAILS
     public Cursor getPaymentData(String cardNumber) {
         SQLiteDatabase db = this.getWritableDatabase();

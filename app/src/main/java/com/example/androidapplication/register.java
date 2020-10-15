@@ -14,7 +14,7 @@ public class register extends AppCompatActivity {
 
     DBHelper myDb;
     EditText fullname, phoneno, email, address, username, password, repassword;
-    Button register;
+    Button register,login;
 
 
 
@@ -34,7 +34,17 @@ public class register extends AppCompatActivity {
         repassword = (EditText) findViewById(R.id.repassword);
 
         register = (Button) findViewById(R.id.register);
+        login = (Button) findViewById(R.id.log);
 
+        login.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(register.this,Login.class);
+                        startActivity(i);
+                    }
+                }
+        );
 
         AddAppData();
 
