@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final String DBNAME = "CarMart.db";
+    public static final String DBNAME = "CarMarts.db";
     public static final String TABLE1 = "Register_table";
     public static final String col_1 = "CusID";
     public static final String col_2 = "FullName";
@@ -41,6 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL(" create table "+ TABLE1 +" (CusID INTEGER PRIMARY KEY AUTOINCREMENT,FullName Text,PhoneNumber Integer,Email Text,Address Text,UserName Text,Password Text,RePassword Text) ");
         MyDB.execSQL(" create table "+ TABLE2 +" (CardID INTEGER PRIMARY KEY AUTOINCREMENT,CardType Text,CardNumber Integer,Cvv Text,ExpDate Integer,CardHolderName Text) ");
+
     }
 
     @Override
@@ -94,9 +95,9 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.delete(TABLE2," CardID = ? ",new String[] {id});
     }
     //VIEW REGISTER DETAILS
-    public Cursor getRegisterData(String cusID){
+    public Cursor getRegisterData(String cusid){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery(" select * from "+ TABLE1 + " where CusID == " + cusID,null);
+        Cursor res = db.rawQuery(" select * from "+ TABLE1 + " where CusID == " + cusid ,null);
         return res;
 
 

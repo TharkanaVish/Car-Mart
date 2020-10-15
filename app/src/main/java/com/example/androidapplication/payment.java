@@ -32,7 +32,6 @@ public class payment extends AppCompatActivity {
         cardholdername = (EditText) findViewById(R.id.holdername);
         cancel = (Button) findViewById(R.id.paymentcancle);
 
-        viewPayment = (Button) findViewById(R.id.paymentview);
         proceedpayment = (Button) findViewById(R.id.proceed);
 
         //navigating cancel button to register view page
@@ -48,7 +47,7 @@ public class payment extends AppCompatActivity {
 
 
         AddPaymentData();
-        viewPaymentDetails();
+
 
     }
 
@@ -100,43 +99,6 @@ public class payment extends AppCompatActivity {
     }
 
 
-    //view payment
-    public void viewPaymentDetails(){
-        viewPayment.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Cursor res = myDb.getPaymentData(cardnumber.getText().toString());
-                        if (res.getCount() == 0){
-                            //show message
-                            return;
-                        }
-                        StringBuffer buffer = new StringBuffer();
-
-                        while (res.moveToNext()) {
-                            buffer.append("CardID :" + res.getString(0) + "\n");
-                            buffer.append("CardType :" + res.getString(1) + "\n");
-                            buffer.append("CardNumber :" + res.getString(2) + "\n");
-                            buffer.append("Cvv :" + res.getString(3) + "\n");
-                            buffer.append("ExpDate :" + res.getString(4) + "\n");
-                            buffer.append("CardHolderName :" + res.getString(5) + "\n\n");
-
-                            //show message to view register details
-                            showMessage("Payment Details",buffer.toString());
-                        }
-                    }
-                }
-        );
-    }
-
-    public void showMessage(String title,String Message){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(title);
-        builder.setMessage(Message);
-        builder.show();
-    }
 
 
 

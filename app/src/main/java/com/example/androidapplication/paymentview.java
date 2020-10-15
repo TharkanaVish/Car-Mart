@@ -36,6 +36,16 @@ public class paymentview extends AppCompatActivity {
         editdetails = (Button) findViewById(R.id.button2);
         pay = (Button) findViewById(R.id.button3);
 
+        pay.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(paymentview.this,Finish.class);
+                        startActivity(i);
+                    }
+                }
+        );
+
         //catch data from Payment
         Intent values = getIntent();
         String viewCardType = values.getStringExtra("cardtype");

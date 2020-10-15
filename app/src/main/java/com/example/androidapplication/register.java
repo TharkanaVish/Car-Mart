@@ -69,13 +69,8 @@ public class register extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_LONG).show();
                             return;
                         }
-                        else if (!password.equals(repassword)) {
+                        else if (cpwd.equals(crpwd)) {
                             // check if both password matches
-                            Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_LONG).show();
-                            return;
-                        }
-                        else {
-
                             Intent m = new Intent(view.getContext(),Registerview.class);
                             m.putExtra("fullname",fullname.getText().toString());
                             m.putExtra("phoneno",phoneno.getText().toString());
@@ -90,6 +85,11 @@ public class register extends AppCompatActivity {
                                 Toast.makeText(register.this, "Data Inserted", Toast.LENGTH_LONG).show();
                             else
                                 Toast.makeText(register.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_LONG).show();
+                            return;
 
                         }
 

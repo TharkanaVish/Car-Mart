@@ -287,20 +287,6 @@
         app:layout_constraintTop_toBottomOf="@+id/holdername" />
 
     <Button
-        android:id="@+id/paymentview"
-        android:layout_width="83dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/holo_orange_light"
-        android:fontFamily="@font/abril_fatface"
-        android:text=" VIEW PAYMENT"
-        android:textColor="@android:color/background_dark"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/paymentcancle"
-        app:layout_constraintTop_toBottomOf="@+id/holdername" />
-
-    <Button
         android:id="@+id/proceed"
         android:layout_width="83dp"
         android:layout_height="46dp"
