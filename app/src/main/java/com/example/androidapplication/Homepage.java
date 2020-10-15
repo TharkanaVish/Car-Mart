@@ -10,17 +10,23 @@ import android.widget.Button;
 
 
 public class Homepage extends AppCompatActivity {
+    Button brandNewBtn;
     Button notices;
     Button buyCar;
     Button  sellcar;
+    Button register;
+    Button login;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        brandNewBtn = findViewById(R.id.btnBrandNew);
         notices = findViewById(R.id.btnnotices);
         buyCar = findViewById(R.id.button12);
         sellcar= findViewById(R.id.button13);
+        register = findViewById(R.id.button9);
+        login = findViewById(R.id.button7);
 
 
     super.onCreate(savedInstanceState);
@@ -31,12 +37,30 @@ public class Homepage extends AppCompatActivity {
         Button notices  = findViewById(R.id.btnnotices);
         Button buyCar = findViewById(R.id.button12);
         Button sellcar= findViewById(R.id.button13);
+        Button register = findViewById(R.id.button9);
+        Button login = findViewById(R.id.button7);
 
 
         brandNewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Homepage.this,BrandNewForm.class);
+                startActivity(i);
+            }
+        });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Homepage.this,register.class);
+                startActivity(i);
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Homepage.this,Login.class);
                 startActivity(i);
             }
         });

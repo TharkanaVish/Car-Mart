@@ -74,7 +74,6 @@ public class payment extends AppCompatActivity {
                         }
                         else
                             {
-
                             Intent m = new Intent(view.getContext(),paymentview.class);
                             m.putExtra("cardtype",cardtype.getText().toString());
                             m.putExtra("cardnumber",cardnumber.getText().toString());
@@ -82,7 +81,6 @@ public class payment extends AppCompatActivity {
                             m.putExtra("expdate",expdate.getText().toString());
                             m.putExtra("cardholdername",cardholdername.getText().toString());
                             startActivity(m);
-
 
                             boolean isInserted = myDb.insertPaymentData(cardtype.getText().toString(),
                                     cardnumber.getText().toString(),

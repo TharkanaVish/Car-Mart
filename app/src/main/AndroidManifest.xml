@@ -2,46 +2,41 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androidapplication">
     <!-- Camera permission  IT19170176 -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <!-- External storage permission IT19170176-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--  <uses-sdk tools:ooverrideLibrary="android_libs.ub_uiautomator"/>-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- External storage permission IT19170176 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- <uses-sdk tools:ooverrideLibrary="android_libs.ub_uiautomator"/> -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
-
-        android:label="CarMart"
         android:icon="@mipmap/ic_launcher"
+        android:label="CarMart"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Registerview"></activity>
-        <activity android:name=".Checkout" ></activity>
-        <activity android:name=".BrandNewForm" ></activity>
-        <activity android:name=".UpdateACar" ></activity>
-        <activity android:name=".AddNewCar" ></activity>
-        <activity android:name=".ListCarView"></activity>
-        <activity android:name=".EditRecordActivity" ></activity>
-        <activity android:name=".ShowRecords"></activity>
-        <activity android:name=".AddRecordActivity" ></activity>
-        <activity android:name=".register"></activity>
-        <activity android:name=".paymentview" ></activity>
-        <activity android:name=".payment" ></activity>
-        <activity android:name=".MainActivity" ></activity>
-
-
+        <activity android:name=".Login"></activity>
+        <activity android:name=".Registerview" />
+        <activity android:name=".Checkout" />
+        <activity android:name=".BrandNewForm" />
+        <activity android:name=".UpdateACar" />
+        <activity android:name=".AddNewCar" />
+        <activity android:name=".ListCarView" />
+        <activity android:name=".EditRecordActivity" />
+        <activity android:name=".ShowRecords" />
+        <activity android:name=".AddRecordActivity" />
+        <activity android:name=".register" />
+        <activity android:name=".paymentview" />
+        <activity android:name=".payment" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".Homepage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListCarViewCustomer">  </activity>
+        <activity android:name=".ListCarViewCustomer"></activity>
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
 
-
-        <activity
-            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
