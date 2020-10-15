@@ -27,12 +27,11 @@
         <activity android:name=".paymentview" />
         <activity android:name=".payment" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Homepage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Homepage"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity android:name=".ListCarViewCustomer"></activity>
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />

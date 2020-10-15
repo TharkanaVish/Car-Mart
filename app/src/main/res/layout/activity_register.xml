@@ -12,7 +12,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@color/background5"
         android:fontFamily="@font/abril_fatface"
@@ -21,8 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/agree"
-        app:layout_constraintVertical_bias="0.613" />
+        app:layout_constraintTop_toBottomOf="@+id/login"
+        app:layout_constraintVertical_bias="0.067" />
 
     <TextView
         android:id="@+id/textView1"
@@ -221,10 +220,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="94dp"
-        android:layout_marginRight="94dp"
         android:fontFamily="@font/aclonica"
         android:text="@string/i_agree_to_the_terms_and_conditions"
         app:layout_constraintEnd_toEndOf="parent"
@@ -244,10 +241,10 @@
         android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agree"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/login"
