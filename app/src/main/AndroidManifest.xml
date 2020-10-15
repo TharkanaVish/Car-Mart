@@ -13,15 +13,9 @@
         android:roundIcon="@drawable/caricon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Finish"></activity>
+        <activity android:name=".Finish"/>
         <activity android:name=".Login" />
-        <activity android:name=".Registerview">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Registerview"/>
         <activity android:name=".Checkout" />
         <activity android:name=".BrandNewForm" />
         <activity android:name=".UpdateACar" />
@@ -34,7 +28,11 @@
         <activity android:name=".paymentview" />
         <activity android:name=".payment" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Homepage"></activity>
+        <activity android:name=".Homepage"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
         <activity android:name=".ListCarViewCustomer" />
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
 
