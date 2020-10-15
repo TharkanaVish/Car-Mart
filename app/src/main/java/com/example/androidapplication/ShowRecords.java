@@ -131,13 +131,20 @@ public class ShowRecords extends AppCompatActivity {
         showRecord();
     }
 
-    @Override
+  /*  @Override*/
 
-    //this funvtion kills all activites.. so
+  /*  //this funvtion kills all activites.. so
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == event.KEYCODE_BACK){
             moveTaskToBack(true);
         }
         return super.onKeyDown(keyCode, event);
+    }*/
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        onBackPressed();
+        return super.onSupportNavigateUp();
+
     }
 }

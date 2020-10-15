@@ -1,5 +1,7 @@
 package com.example.androidapplication;
 
+//IT19118246
+//Wijesekera S.M
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,10 +21,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+
 public class AdapterC extends RecyclerView.Adapter<AdapterC.Holder> {
+
 
     private Context context;
     private ArrayList<ModelC> arrayList;
+
     private DatabaseHelper databaseHelper;
     private boolean isButtonsNeeded = false;
 
@@ -30,9 +35,12 @@ public class AdapterC extends RecyclerView.Adapter<AdapterC.Holder> {
         this.context = context;
         this.arrayList = arrayList;
 
+
         databaseHelper = new DatabaseHelper(context);
         this.isButtonsNeeded = isButtonsNeeded;
     }
+
+
 
     @NonNull
     @Override
@@ -155,7 +163,7 @@ public class AdapterC extends RecyclerView.Adapter<AdapterC.Holder> {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Edit");
-        builder.setMessage("Do you want to edit this?");
+        builder.setMessage("Do you want to Edit this?");
         builder.setCancelable(false);
         builder.setIcon(R.drawable.ic_action_edit);
 

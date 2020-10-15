@@ -1,5 +1,7 @@
 package com.example.androidapplication;
 
+//IT19118246
+//Wijesekera S.M
 public class ModelC {
     String id;
     String image;
@@ -113,5 +115,7 @@ public class ModelC {
 
     public void setUpdate_car(String update_car) {
         this.update_car = update_car;
+    }
+    public void toLowerCase() {
     }
 }

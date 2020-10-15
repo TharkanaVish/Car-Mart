@@ -1,5 +1,7 @@
 package com.example.androidapplication;
 
+//IT19118246
+//Wijesekera S.M
 import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.app.AlertDialog;
@@ -25,7 +27,6 @@ import androidx.core.content.ContextCompat;
 
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
-
 
 
 public class UpdateACar extends AppCompatActivity {
@@ -69,9 +70,7 @@ public class UpdateACar extends AppCompatActivity {
         cfuel = findViewById(R.id.fuel);
         ccontact = findViewById(R.id.contact);
 
-
         addCarbtn = findViewById(R.id.addFabButton);
-
 
         Intent intent = getIntent();
         editMode = intent.getBooleanExtra("editMode", editMode);
@@ -112,7 +111,7 @@ public class UpdateACar extends AppCompatActivity {
             ccontact.setText(contact);
 
             if (imageUri.toString().equals("null")) {
-                cImageView.setImageResource(R.drawable.ic_action_profile);
+                cImageView.setImageResource(R.drawable.addimage2);
             }
             else{
                 cImageView.setImageURI(imageUri);
@@ -129,7 +128,6 @@ public class UpdateACar extends AppCompatActivity {
         cameraPermissions = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions=new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-
         dbHelper = new DatabaseHelper(this);
 
         cImageView.setOnClickListener(new View.OnClickListener() {
@@ -145,8 +143,7 @@ public class UpdateACar extends AppCompatActivity {
 
                 getData();
 
-                startActivity(new Intent(UpdateACar.this, ListCarView.class));
-                Toast.makeText(UpdateACar.this,"Update Successfully",Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -160,6 +157,24 @@ public class UpdateACar extends AppCompatActivity {
         mileage = ""+cmileage.getText().toString().trim();
         fuel = ""+cfuel.getText().toString().trim();
         contact = ""+ccontact.getText().toString().trim();
+
+        //my added validation
+        if(brand =="" | Model==""| transmission =="" | ModYear =="" | mileage =="" |fuel=="" |contact==""){
+
+            Toast.makeText(UpdateACar.this,"Please fill out all the fields",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(this.ModYear.length() != 4 ){
+
+            Toast.makeText(UpdateACar.this,"Please Enter a Valid Model Year",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(this.contact.length() != 10 ){
+
+            Toast.makeText(UpdateACar.this,"Please Enter a Valid Phone Number",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         if (editMode) {
             String newUpdateTime = ""+System.currentTimeMillis();
@@ -197,7 +212,8 @@ public class UpdateACar extends AppCompatActivity {
 
 
         }
-
+        startActivity(new Intent(UpdateACar.this, ListCarView.class));
+        Toast.makeText(UpdateACar.this,"Updated Successfully",Toast.LENGTH_SHORT).show();
 
     }
 
@@ -347,7 +363,7 @@ public class UpdateACar extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-
+        
         onBackPressed();
         return super.onSupportNavigateUp();
 

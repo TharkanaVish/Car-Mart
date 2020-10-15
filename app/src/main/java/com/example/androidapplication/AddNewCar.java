@@ -1,5 +1,7 @@
 package com.example.androidapplication;
 
+//IT19118246
+//Wijesekera S.M
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -45,7 +47,8 @@ public class AddNewCar extends AppCompatActivity {
     private Uri imageUri;
     private String brand,Model,transmission,ModYear,mileage,fuel,contact, timeStamp;
     private  DatabaseHelper dbHelper;
-
+    private boolean True;
+    private boolean False;
 
 
     @SuppressLint("WrongViewCast")
@@ -88,8 +91,7 @@ public class AddNewCar extends AppCompatActivity {
             public void onClick(View v) {
 
                 getData();
-                startActivity(new Intent(AddNewCar.this, ListCarView.class));
-                Toast.makeText(AddNewCar.this,"Added Successfully",Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -105,21 +107,42 @@ public class AddNewCar extends AppCompatActivity {
         contact = ""+ccontact.getText().toString().trim();
 
         timeStamp = ""+System.currentTimeMillis();
-        dbHelper.insertACar(
-                ""+brand,
-                ""+Model,
-                ""+transmission,
-                ""+ModYear,
-                ""+imageUri,
-                ""+mileage,
-                ""+fuel,
-                ""+contact,
-                ""+timeStamp,
-                ""+timeStamp
 
-        );
+        //my added validation
+        if(brand =="" | Model==""| transmission =="" | ModYear =="" | mileage =="" |fuel=="" |contact==""){
 
+            Toast.makeText(AddNewCar.this,"Please fill out all the fields",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(this.ModYear.length() != 4 ){
 
+            Toast.makeText(AddNewCar.this,"Please Enter a Valid Model Year",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(this.contact.length() != 10 ){
+
+            Toast.makeText(AddNewCar.this,"Please Enter a Valid Phone Number",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        else{
+            dbHelper.insertACar(
+                    "" + brand,
+                    "" + Model,
+                    "" + transmission,
+                    "" + ModYear,
+                    "" + imageUri,
+                    "" + mileage,
+                    "" + fuel,
+                    "" + contact,
+                    "" + timeStamp,
+                    "" + timeStamp
+
+            );
+            startActivity(new Intent(AddNewCar.this, ListCarView.class));
+            Toast.makeText(AddNewCar.this,"Added Successfully",Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -274,7 +297,5 @@ public class AddNewCar extends AppCompatActivity {
         return super.onSupportNavigateUp();
 
     }
-
-
 
 }

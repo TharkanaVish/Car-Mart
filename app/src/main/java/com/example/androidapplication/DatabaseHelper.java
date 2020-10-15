@@ -3,9 +3,6 @@ package com.example.androidapplication;
 // IT19170176
 // FERNANDO W.N.D
 // CarMart Notices
-
-
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -108,6 +105,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return arrayList;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //IT19118246
+    //Wijesekera S.M
 
     //Insert Car Details-IT19118246
     public long insertACar(String brand, String Model, String transmission, String ModYear,String image, String mileage,

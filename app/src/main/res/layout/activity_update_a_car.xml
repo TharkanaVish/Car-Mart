@@ -17,7 +17,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/border"
-        android:src="@drawable/ic_action_name"
+        android:src="@drawable/addimage2"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
